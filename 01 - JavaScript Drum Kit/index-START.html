@@ -59,6 +59,27 @@
 
 <script>
 
+  function playSound (e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if (!audio) return; // if no audio return function immediately
+
+    audio.currentTime = 0; // set current audio file time to beginning of file
+    audio.play(); // play the audio
+    key.classList.add('playing'); // add the playing class to highlight/size up key pressed
+
+  }
+
+  function removeTransition (e) {
+    if(e.propertyName !== 'transform') return; //skip if no transform
+    this.classList.remove('playing');
+  }
+
+  const keys = document.querySelectorAll('.key');
+
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+  window.addEventListener('keydown', playSound);
 </script>
 
 
