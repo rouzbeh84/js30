@@ -1,0 +1,34 @@
+const secondHand = document.querySelector('.second-hand')
+const minuteHand = document.querySelector('.min-hand')
+const hourHand = document.querySelector('.hour-hand')
+
+function setDate() {
+  const now = new Date();
+
+  const seconds = now.getSeconds();
+  const secondsDegrees = ((seconds/60) * 360) + 90;
+  secondHand.style.transform = `rotate(${secondsDegrees}deg)`
+
+  const minutes = now.getMinutes();
+  const minutesDegrees = ((minutes/60) * 360) + 90;
+  minuteHand.style.transform = `rotate(${minutesDegrees}deg)`
+
+  const hours = now.getHours();
+  const hoursDegrees = ((hours/60) * 12);
+  hourHand.style.transform = `rotate(${hoursDegrees}deg)`
+
+  console.log(secondHand.style.transform.slice(7,10));
+  if(secondHand.style.transform.slice(7,10) === "444") {
+    secondHand.style.transition = 'none';
+    secondHand.style.transition = 'none';
+    secondHand.style.transition = 'none';
+  }
+  if(secondHand.style.transform.slice(7,10) === "90d") {
+    secondHand.style.transition = 'all 0.05s;';
+    secondHand.style.transition = 'all 0.05s;';
+    secondHand.style.transition = 'all 0.05s;';
+  }
+}
+
+setInterval(setDate, 1000);
+
