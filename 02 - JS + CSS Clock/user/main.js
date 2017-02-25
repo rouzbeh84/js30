@@ -17,15 +17,10 @@ function setDate() {
   const hoursDegrees = ((hours/60) * 12);
   hourHand.style.transform = `rotate(${hoursDegrees}deg)`
 
-  console.log(secondHand.style.transform.slice(7,10));
   if(secondHand.style.transform.slice(7,10) === "444") {
-    secondHand.style.transition = 'none';
-    secondHand.style.transition = 'none';
     secondHand.style.transition = 'none';
   }
   if(secondHand.style.transform.slice(7,10) === "90d") {
-    secondHand.style.transition = 'all 0.05s;';
-    secondHand.style.transition = 'all 0.05s;';
     secondHand.style.transition = 'all 0.05s;';
   }
 }
